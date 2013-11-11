@@ -13,10 +13,8 @@ public class DollarTest {
     @Test
     public void testMultiply() {
         Dollar myFiver = new Dollar(5);
-        Dollar myTen = myFiver.times(2);
-        assertEquals(10, myTen.getAmount());
-        Dollar myFifteen = myFiver.times(3);
-        assertEquals(15, myFifteen.getAmount());
+        assertEquals(new Dollar(10), myFiver.times(2));
+        assertEquals(new Dollar(15), myFiver.times(3));
     }
 
     @Test

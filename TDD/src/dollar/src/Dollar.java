@@ -3,7 +3,7 @@ package dollar.src;
  * Created by vergiliu on 11/11/13.
  */
 public class Dollar {
-    int theAmount;
+    private int theAmount;
 
     public Dollar(int anAmount) {
         theAmount = anAmount;
