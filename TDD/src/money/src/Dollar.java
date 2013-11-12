@@ -1,15 +1,11 @@
-package money.src;
 /**
  * Created by vergiliu on 11/11/13.
  */
+package money.src;
+
 public class Dollar extends Money {
-
-    public Dollar(int anAmount) {
-        super(anAmount);
-    }
-
-    public Money times(int aMultiplyAmount) {
-        return new Dollar(theAmount * aMultiplyAmount);
+    public Dollar(int anAmount, String aCurrency) {
+        super(anAmount, aCurrency);
     }
 
     public int getAmount() {

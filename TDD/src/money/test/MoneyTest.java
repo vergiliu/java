@@ -1,9 +1,9 @@
 /**
  * Created by vergiliu on 11/11/13.
  */
-
 package money.test;
 
+import money.src.Franc;
 import money.src.Money;
 import org.junit.Test;
 
@@ -39,5 +39,16 @@ public class MoneyTest {
         Money myFiveFranc = Money.franc(5);
         assertEquals(Money.franc(10), myFiveFranc.times(2));
         assertEquals(Money.franc(15), myFiveFranc.times(3));
+    }
+
+    @Test
+    public void testCurrencies() {
+        assertEquals("USD", Money.dollar(1).getCurrency());
+        assertEquals("CHF", Money.franc(1).getCurrency());
+    }
+
+    @Test
+    public void testDifferentClassEquality() {
+        assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
     }
 }

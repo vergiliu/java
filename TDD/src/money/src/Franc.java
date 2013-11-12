@@ -1,16 +1,11 @@
-package money.src;
-
 /**
  * Created by vergiliu on 11/11/13.
  */
+package money.src;
 
 public class Franc extends Money {
-    public Franc(int anAmount) {
-        super(anAmount);
-    }
-
-    public Money times(int aMultiplyAmount) {
-        return new Franc(theAmount * aMultiplyAmount);
+    public Franc(int anAmount, String aCurrency) {
+        super(anAmount, aCurrency);
     }
 
     public int getAmount() {

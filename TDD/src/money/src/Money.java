@@ -1,27 +1,41 @@
 /**
  * Created by vergiliu on 11/12/13.
  */
-
 package money.src;
 
-abstract public class Money {
+public class Money {
+    protected String theCurrency;
     protected int theAmount;
 
-    abstract public Money times(int aMultiplier);
-
-    public Money(int anAmount) {
+    public Money(int anAmount, String aCurrency) {
         theAmount = anAmount;
+        theCurrency = aCurrency;;
     }
+
+    @Override
     public boolean equals(Object anObject) {
         Money myMoney = (Money)anObject;
-        return theAmount == myMoney.theAmount && getClass().equals(myMoney.getClass());
+        return theAmount == myMoney.theAmount && theCurrency.equals(myMoney.getCurrency());
     }
 
     public static Money dollar(int anAmount) {
-        return new Dollar(anAmount);
+        return new Dollar(anAmount, "USD");
     }
 
     public static Money franc(int anAmount) {
-        return new Franc(anAmount);
+        return new Franc(anAmount, "CHF");
+    }
+
+    public String getCurrency() {
+        return theCurrency;
+    }
+
+    public Money times(int aMultiplier) {
+        return new Money(theAmount * aMultiplier, theCurrency);
+    }
+
+    @Override
+    public String toString() {
+        return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
     }
 }
