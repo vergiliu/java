@@ -13,6 +13,6 @@ public class Money {
 
     public boolean equals(Object anObject) {
         Money myMoney = (Money)anObject;
-        return theAmount == myMoney.theAmount;
+        return theAmount == myMoney.theAmount && getClass().equals(myMoney.getClass());
     }
 }

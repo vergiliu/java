@@ -19,12 +19,20 @@ public class DollarTest {
     }
 
     @Test
-    public void testEquality() {
+    public void testDollarEquality() {
         assertTrue(new Dollar(5).equals(new Dollar(5)));
         assertFalse(new Dollar(5).equals(new Dollar(10)));
+    }
 
+    @Test
+    public void testFrancEquality() {
         assertTrue(new Franc(5).equals(new Franc(5)));
         assertFalse(new Franc(5).equals(new Franc(10)));
+    }
+
+    @Test
+    public void testCurrenciesEquality() {
+        assertFalse(new Franc(5).equals(new Dollar(5)));
     }
 
     @Test
