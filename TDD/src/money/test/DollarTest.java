@@ -1,14 +1,14 @@
-package dollar.test;
-
-import dollar.src.Dollar;
-import dollar.src.Franc;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
 /**
  * Created by vergiliu on 11/11/13.
  */
+
+package money.test;
+
+import money.src.Dollar;
+import money.src.Franc;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class DollarTest {
     @Test
@@ -22,12 +22,15 @@ public class DollarTest {
     public void testEquality() {
         assertTrue(new Dollar(5).equals(new Dollar(5)));
         assertFalse(new Dollar(5).equals(new Dollar(10)));
+
+        assertTrue(new Franc(5).equals(new Franc(5)));
+        assertFalse(new Franc(5).equals(new Franc(10)));
     }
 
     @Test
     public void testFrancMultiplications() {
         Franc myFiveFranc = new Franc(5);
-                assertEquals(new Franc(10), myFiveFranc.times(2));
+        assertEquals(new Franc(10), myFiveFranc.times(2));
         assertEquals(new Franc(15), myFiveFranc.times(3));
     }
 }

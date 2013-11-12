@@ -1,14 +1,12 @@
-package dollar.src;
+package money.src;
 
 /**
  * Created by vergiliu on 11/11/13.
  */
 
-public class Franc {
-    private int theAmount;
-
+public class Franc extends Money {
     public Franc(int anAmount) {
-        theAmount = anAmount;
+        super(anAmount);
     }
 
     public Franc times(int aMultiplyAmount) {
@@ -17,9 +15,5 @@ public class Franc {
 
     public int getAmount() {
         return theAmount;
-    }
-
-    public boolean equals(Object anObject) {
-        return theAmount == ((Franc)anObject).getAmount();
     }
 }

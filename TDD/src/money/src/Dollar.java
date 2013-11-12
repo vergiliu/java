@@ -1,12 +1,11 @@
-package dollar.src;
+package money.src;
 /**
  * Created by vergiliu on 11/11/13.
  */
-public class Dollar {
-    private int theAmount;
+public class Dollar extends Money {
 
     public Dollar(int anAmount) {
-        theAmount = anAmount;
+        super(anAmount);
     }
 
     public Dollar times(int aMultiplyAmount) {
@@ -15,9 +14,5 @@ public class Dollar {
 
     public int getAmount() {
         return theAmount;
-    }
-
-    public boolean equals(Object anObject) {
-        return theAmount == ((Dollar)anObject).getAmount();
     }
 }
