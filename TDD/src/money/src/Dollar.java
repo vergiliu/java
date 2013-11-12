@@ -8,7 +8,7 @@ public class Dollar extends Money {
         super(anAmount);
     }
 
-    public Dollar times(int aMultiplyAmount) {
+    public Money times(int aMultiplyAmount) {
         return new Dollar(theAmount * aMultiplyAmount);
     }
 
