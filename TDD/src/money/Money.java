@@ -1,9 +1,7 @@
 /**
  * Created by vergiliu on 11/12/13.
  */
-package money.src;
-
-import money.Expression;
+package money;
 
 public class Money implements Expression {
     private String theCurrency;
@@ -45,7 +43,11 @@ public class Money implements Expression {
         return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
     }
 
-    public Expression plus(Money anAmount) {
-        return new Money(anAmount.getAmount() + getAmount(), getCurrency());
+    public Expression plus(Money aSecondArgument) {
+        return new Sum(this, aSecondArgument);
+    }
+
+    public Money reduce(String toCurrency) {
+        return this;
     }
 }

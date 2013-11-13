@@ -5,7 +5,8 @@ package money.test;
 
 import money.Bank;
 import money.Expression;
-import money.src.Money;
+import money.Money;
+import money.Sum;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -45,9 +46,25 @@ public class MoneyTest {
     @Test
     public void testSimpleAddition() {
         Money myFive = Money.dollar(5);
-        Expression sum = myFive.plus(myFive);
+        Expression result = myFive.plus(myFive);
+        Sum sum = (Sum) result;
         Bank bank = new Bank();
         Money myReduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), myReduced);
+    }
+
+    @Test
+    public void reduceSum() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+    @Test
+    public void reduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
     }
 }
