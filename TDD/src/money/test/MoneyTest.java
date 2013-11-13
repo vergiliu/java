@@ -3,6 +3,8 @@
  */
 package money.test;
 
+import money.Bank;
+import money.Expression;
 import money.src.Money;
 import org.junit.Test;
 
@@ -42,7 +44,10 @@ public class MoneyTest {
 
     @Test
     public void testSimpleAddition() {
-        Money mySum = Money.dollar(5).plus(Money.dollar(5));
-        assertEquals(Money.dollar(10), mySum);
+        Money myFive = Money.dollar(5);
+        Expression sum = myFive.plus(myFive);
+        Bank bank = new Bank();
+        Money myReduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), myReduced);
     }
 }

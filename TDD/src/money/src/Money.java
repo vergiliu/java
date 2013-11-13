@@ -3,7 +3,9 @@
  */
 package money.src;
 
-public class Money {
+import money.Expression;
+
+public class Money implements Expression {
     private String theCurrency;
     private int theAmount;
 
@@ -43,7 +45,7 @@ public class Money {
         return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
     }
 
-    public Money plus(Money anAmount) {
+    public Expression plus(Money anAmount) {
         return new Money(anAmount.getAmount() + getAmount(), getCurrency());
     }
 }
