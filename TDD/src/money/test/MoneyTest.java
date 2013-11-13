@@ -3,7 +3,6 @@
  */
 package money.test;
 
-import money.src.Franc;
 import money.src.Money;
 import org.junit.Test;
 
@@ -24,12 +23,6 @@ public class MoneyTest {
     }
 
     @Test
-    public void testFrancEquality() {
-        assertTrue(Money.franc(5).equals(Money.franc(5)));
-        assertFalse(Money.franc(5).equals(Money.franc(10)));
-    }
-
-    @Test
     public void testCurrenciesEquality() {
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
     }
@@ -45,10 +38,5 @@ public class MoneyTest {
     public void testCurrencies() {
         assertEquals("USD", Money.dollar(1).getCurrency());
         assertEquals("CHF", Money.franc(1).getCurrency());
-    }
-
-    @Test
-    public void testDifferentClassEquality() {
-        assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
     }
 }

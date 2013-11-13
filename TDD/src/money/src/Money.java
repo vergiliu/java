@@ -19,11 +19,11 @@ public class Money {
     }
 
     public static Money dollar(int anAmount) {
-        return new Dollar(anAmount, "USD");
+        return new Money(anAmount, "USD");
     }
 
     public static Money franc(int anAmount) {
-        return new Franc(anAmount, "CHF");
+        return new Money(anAmount, "CHF");
     }
 
     public String getCurrency() {
