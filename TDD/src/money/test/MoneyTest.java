@@ -20,18 +20,18 @@ public class MoneyTest {
     }
 
     @Test
-    public void testDollarEquality() {
+    public void dollarEquality() {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(10)));
     }
 
     @Test
-    public void testCurrenciesEquality() {
+    public void areCurrenciesEqual() {
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
     }
 
     @Test
-    public void testFrancMultiplications() {
+    public void francMultiplications() {
         Money myFiveFranc = Money.franc(5);
         assertEquals(Money.franc(10), myFiveFranc.times(2));
         assertEquals(Money.franc(15), myFiveFranc.times(3));
@@ -44,7 +44,7 @@ public class MoneyTest {
     }
 
     @Test
-    public void testSimpleAddition() {
+    public void simpleAddition() {
         Money myFive = Money.dollar(5);
         Expression result = myFive.plus(myFive);
         Sum sum = (Sum) result;
@@ -66,5 +66,18 @@ public class MoneyTest {
         Bank bank = new Bank();
         Money result = bank.reduce(Money.dollar(1), "USD");
         assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void twoFrancsMakesADollar() {
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(Money.franc(2), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void convertSameCurrency() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
     }
 }

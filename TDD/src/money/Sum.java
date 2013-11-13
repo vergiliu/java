@@ -12,7 +12,7 @@ public class Sum implements Expression {
         this.theSecondElement = aSecondArgument;
     }
 
-    public Money reduce(String toCurrency) {
+    public Money reduce(Bank bank, String toCurrency) {
         int amount = theFirstElement.getAmount() + theSecondElement.getAmount();
         return new Money(amount, toCurrency);
     }
