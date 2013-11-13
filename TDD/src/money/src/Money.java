@@ -4,8 +4,12 @@
 package money.src;
 
 public class Money {
-    protected String theCurrency;
-    protected int theAmount;
+    private String theCurrency;
+    private int theAmount;
+
+    public int getAmount() {
+        return theAmount;
+    }
 
     public Money(int anAmount, String aCurrency) {
         theAmount = anAmount;
@@ -37,5 +41,9 @@ public class Money {
     @Override
     public String toString() {
         return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
+    }
+
+    public Money plus(Money anAmount) {
+        return new Money(anAmount.getAmount() + getAmount(), getCurrency());
     }
 }
