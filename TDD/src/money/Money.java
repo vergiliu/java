@@ -34,7 +34,7 @@ public class Money implements Expression {
         return theCurrency;
     }
 
-    public Money times(int aMultiplier) {
+    public Expression times(int aMultiplier) {
         return new Money(theAmount * aMultiplier, theCurrency);
     }
 
@@ -43,7 +43,7 @@ public class Money implements Expression {
         return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
     }
 
-    public Expression plus(Money aSecondArgument) {
+    public Expression plus(Expression aSecondArgument) {
         return new Sum(this, aSecondArgument);
     }
 

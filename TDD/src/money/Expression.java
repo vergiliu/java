@@ -6,4 +6,5 @@ package money;
 
 public interface Expression {
     Money reduce(Bank bank, String toCurrency);
+    Expression plus(Expression anAmount);
 }
