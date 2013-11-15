@@ -12,8 +12,14 @@ public class Sum implements Expression {
         this.theSecondElement = aSecondArgument;
     }
 
+    @Override
     public Expression plus(Expression aSecondArgument){
         return new Sum(this, aSecondArgument);
+    }
+
+    @Override
+    public Expression times(int anAmount) {
+        return new Sum(theFirstElement.times(anAmount), theSecondElement.times(anAmount));
     }
 
     public Money reduce(Bank bank, String toCurrency) {

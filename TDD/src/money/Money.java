@@ -34,6 +34,7 @@ public class Money implements Expression {
         return theCurrency;
     }
 
+    @Override
     public Expression times(int aMultiplier) {
         return new Money(theAmount * aMultiplier, theCurrency);
     }
@@ -43,6 +44,7 @@ public class Money implements Expression {
         return "Money{theCurrency=" + theCurrency + ", theAmount=" + theAmount + "}";
     }
 
+    @Override
     public Expression plus(Expression aSecondArgument) {
         return new Sum(this, aSecondArgument);
     }
