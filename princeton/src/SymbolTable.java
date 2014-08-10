@@ -1,14 +1,19 @@
 
 public class SymbolTable<Key, Value> {
-    public SymbolTable() {}
+    public SymbolTable() {
+        //TODO
+        // assume Key are Comparable
+        //use immutable for Key - String, Integer, Double, File
+    }
 
     public void put(Key key, Value value) {
-
+        //TODO
+        //overrides value is same key is present
     }
 
     public Value get(Key key) {
         //TODO
-        return null;
+        return null; //if key not present
     }
 
     public void delete(Key key) {
@@ -16,8 +21,7 @@ public class SymbolTable<Key, Value> {
     }
 
     public boolean contains(Key key) {
-        //TODO
-        return false;
+        return (get(key) != null);
     }
 
     public boolean isEmpty() {
