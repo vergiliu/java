@@ -1,4 +1,4 @@
-public class Merge {
+public class MergeSort {
     private static void merge(Comparable []a, Comparable []aux, int lo, int mid, int hi) {
 //        assert isSorted(a, lo, mid);
 //        assert isSorted(a, mid+1, hi);
