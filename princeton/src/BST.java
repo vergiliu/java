@@ -13,6 +13,18 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    public int rank(Key key) {
+        return rank(key, root);
+    }
+
+    private int rank(Key key, Node node) {
+        if (node == null) return 0;
+        int direction = key.compareTo(node.key);
+        if (direction < 0 ) return rank(key, node.left);
+        else if (direction > 0) return 1 + size(node.left) +rank(key, node.right);
+        else return size(node.left);
+    }
+
     public int size() {
         return size(root);
     }
@@ -36,7 +48,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         return node;
     }
 
-
     public Value get(Key key) {
         Node n = root;
         while (n != null) {
@@ -53,7 +64,20 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Iterable<Key> iterator() {
-        //TODO
-        return null;
+        Queue<Key> myQueue = new Queue<Key>();
+        inOrderTraversal(root, myQueue);
+        return myQueue;
+    }
+
+    private void inOrderTraversal(Node node, Queue<Key> queue) {
+        if (queue == null) return;
+        inOrderTraversal(node.left, queue);
+        queue.enqueue(node.key);
+        inOrderTraversal(node.right, queue);
+    }
+
+    public static void main(String[] args) {
+        BST b = new BST();
+        b.put("ana", 1);
     }
 }
